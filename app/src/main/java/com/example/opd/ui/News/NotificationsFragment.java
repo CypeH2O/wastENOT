@@ -1,4 +1,4 @@
-package com.example.opd.ui.notifications;
+package com.example.opd.ui.News;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

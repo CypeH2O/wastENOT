@@ -1,4 +1,4 @@
-package com.example.opd.ui.notifications;
+package com.example.opd.ui.News;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
