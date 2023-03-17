@@ -12,6 +12,9 @@
         android:theme="@style/Theme.OPD"
         tools:targetApi="31" >
         <activity
+            android:name=".ui.Calculator.Calculator_activity"
+            android:exported="false" />
+        <activity
             android:name=".ui.News.ExtendenNewsActivity"
             android:exported="false" />
         <activity
