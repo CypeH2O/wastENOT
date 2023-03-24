@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:id="@+id/fragment_news"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@drawable/rounded"
     android:orientation="vertical"
     android:onClick="ToExtendedNews"
@@ -12,11 +13,12 @@
     <LinearLayout
 
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="horizontal"
 
         >
         <ImageView
+            android:id="@+id/titleimg"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_margin="10dp"
@@ -44,6 +46,7 @@
         android:textSize="20dp"
         android:layout_margin="5dp"/>
     <ImageView
+        android:id="@+id/mainimg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
