@@ -1,6 +1,8 @@
 package com.example.opd.ui.News;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,15 +26,34 @@ public class NewsAdapter extends ArrayAdapter<News> {
     }
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        View view=inflater.inflate(this.layoutid, parent, false);
-
-        TextView Title = view.findViewById(R.id.title);
-        TextView MainText = view.findViewById(R.id.main_text);
-
+        ViewHolder viewHolder;
+        if(convertView==null){
+            convertView = inflater.inflate(this.layoutid, parent, false);
+            viewHolder = new ViewHolder(convertView);
+            convertView.setTag(viewHolder);
+        }
+        else{
+            viewHolder = (ViewHolder) convertView.getTag();
+        }
         News newart = News.get(position);
 
-        Title.setText(newart.getTitle());
-        MainText.setText(newart.getMainText());
-        return view;
+        viewHolder.Title.setText(newart.getTitle());
+        viewHolder.MainText.setText(newart.getMainText());
+        Bitmap Titleimg= BitmapFactory.decodeByteArray(newart.getblobTitleimg(),0,newart.getblobTitleimg().length);
+        Bitmap Mainimg= BitmapFactory.decodeByteArray(newart.getblobMainimg(),0,newart.getblobMainimg().length);
+        viewHolder.TitleImg.setImageBitmap(Titleimg);
+        viewHolder.MainImg.setImageBitmap(Mainimg);
+        return convertView;
+    }
+    private class ViewHolder {
+        final ImageView TitleImg, MainImg;
+        final TextView Title, MainText;
+
+        ViewHolder(View view) {
+            TitleImg = view.findViewById(R.id.titleimg);
+            MainImg = view.findViewById(R.id.mainimg);
+            Title = view.findViewById(R.id.title);
+            MainText = view.findViewById(R.id.main_text);
+        }
     }
 }
