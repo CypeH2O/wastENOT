@@ -54,10 +54,6 @@ public class MainActivity extends AppCompatActivity {
         tabLayoutMediator.attach();
 
     }
-    public void ToExtendedNews(View view){
-        Intent intent = new Intent(this, ExtendenNewsActivity.class);
-        startActivity(intent);
-    }
     public void StartEcoTest(View view){
         Intent intent = new Intent(this, Calculator_activity.class);
         startActivity(intent);

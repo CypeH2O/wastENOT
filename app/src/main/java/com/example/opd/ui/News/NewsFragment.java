@@ -1,21 +1,18 @@
 package com.example.opd.ui.News;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
+
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import androidx.fragment.app.Fragment;
-import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.opd.R;
 
 public class NewsFragment extends Fragment {
@@ -35,7 +32,6 @@ public class NewsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         //setEmptyData();
     }
     @Override
@@ -45,7 +41,7 @@ public class NewsFragment extends Fragment {
         Runnable Newsload = new Runnable() {
             @Override
             public void run() {
-                rs = connnect.ConncectToDb(0,5);
+                rs = connnect.GetNewsfromdb(0,5);
                     counterlist.post(new Runnable() {
                         @Override
                         public void run() {
@@ -79,7 +75,7 @@ public class NewsFragment extends Fragment {
                     Runnable Newsload = new Runnable() {
                         @Override
                         public void run() {
-                            rs = connnect.ConncectToDb(counterlist.getLastVisiblePosition()+1,5);
+                            rs = connnect.GetNewsfromdb(counterlist.getLastVisiblePosition()+1,5);
                             counterlist.post(new Runnable() {
                                 @Override
                                 public void run() {
