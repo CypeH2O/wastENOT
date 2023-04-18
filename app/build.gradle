@@ -34,8 +34,11 @@ android {
 dependencies {
     implementation 'androidx.fragment:fragment:1.5.5'
     implementation "com.google.android.material:material:1.8.0"
-    
 
+    implementation 'com.squareup.okhttp3:okhttp:3.14.6'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.10.1'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.10.1'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.10.1'
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
