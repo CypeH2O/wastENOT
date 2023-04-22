@@ -44,8 +44,8 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
         viewHolder.Title.setText(newart.getTitle());
         viewHolder.MainText.setText(newart.getMainText());
-        Bitmap Titleimg= BitmapFactory.decodeByteArray(newart.getblobTitleimg(),0,newart.getblobTitleimg().length);
-        Bitmap Mainimg= BitmapFactory.decodeByteArray(newart.getblobMainimg(),0,newart.getblobMainimg().length);
+        Bitmap Titleimg= BitmapFactory.decodeByteArray(newart.getBlobTitleImg(),0,newart.getBlobTitleImg().length);
+        Bitmap Mainimg= BitmapFactory.decodeByteArray(newart.getBlobMainImg(),0,newart.getBlobMainImg().length);
         viewHolder.TitleImg.setImageBitmap(Titleimg);
         viewHolder.MainImg.setImageBitmap(Mainimg);
         viewHolder.ExtNews.setOnClickListener(new View.OnClickListener() {

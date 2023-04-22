@@ -1,16 +1,36 @@
 package com.example.opd.ui.News;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class News {
+    int id;
+    @JsonProperty("title")
     private String Title;
+    @JsonProperty("maintext")
     private String MainText;
-    private byte[] blobTitleimg;
-    private byte[] blobMainimg;
-    public News(String Title,String MainText,byte[] blobTitleimg,byte[] blobMainimg){
-        this.Title = Title;
-        this.MainText = MainText;
-        this.blobTitleimg=blobTitleimg;
-        this.blobMainimg=blobMainimg;
+    @JsonProperty("titleimg")
+    private byte[] blobTitleImg;
+    @JsonProperty("mainimg")
+    private byte[] blobMainImg;
+    public News(){
+
     }
+    public News(int id, String title, String mainText, byte[] blobTitleImg, byte[] blobMainImg) {
+        this.id = id;
+        Title = title;
+        MainText = mainText;
+        this.blobTitleImg = blobTitleImg;
+        this.blobMainImg = blobMainImg;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
     public String getTitle(){
         return this.Title;
     }
@@ -23,16 +43,16 @@ public class News {
     public void setMainText(String MainText){
         this.MainText = MainText;
     }
-    public byte[] getblobTitleimg(){
-        return this.blobTitleimg;
+    public byte[] getBlobTitleImg(){
+        return this.blobTitleImg;
     }
-    public void setblobTitleimg(byte[] blobTitleimg){
-        this.blobTitleimg = blobTitleimg;
+    public void setBlobTitleImg(byte[] blobTitleImg){
+        this.blobTitleImg = blobTitleImg;
     }
-    public byte[] getblobMainimg(){
-        return this.blobMainimg;
+    public byte[] getBlobMainImg(){
+        return this.blobMainImg;
     }
-    public void setblobMainimg(byte[] blobMainimg){
-        this.blobMainimg = blobMainimg;
+    public void setBlobMainImg(byte[] blobMainImg){
+        this.blobMainImg = blobMainImg;
     }
 }

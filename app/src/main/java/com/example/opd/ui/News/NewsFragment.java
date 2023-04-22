@@ -1,5 +1,7 @@
 package com.example.opd.ui.News;
 
+import static com.example.opd.ui.News.RequestHelper.getNewsFromUrl;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,11 +9,14 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ListView;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
 import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.opd.R;
 
@@ -38,27 +43,16 @@ public class NewsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View result=inflater.inflate(R.layout.main_news, container, false);
-        Runnable Newsload = new Runnable() {
+        SwipeRefreshLayout refreshLayout = result.findViewById(R.id.refrech);
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
-            public void run() {
-                rs = connnect.GetNewsfromdb(0,5);
-                    counterlist.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                while (rs.next()) {
-                                    newsAdapter.add(new News(rs.getString(2), rs.getString(3), rs.getBytes(4), rs.getBytes(5)));
-                                }
-                            }catch (SQLException sqlEx){
-
-                            }
-                        }
-                    });
-
+            public void onRefresh() {
+                newsAdapter.clear();
+               addNews(0,4);
+                refreshLayout.setRefreshing(false);
             }
-        };
-        Thread loadthread = new Thread(Newsload);
-        loadthread.start();
+        });
+        addNews(0,4);
         return result;
     }
     @Override
@@ -72,28 +66,7 @@ public class NewsFragment extends Fragment {
                 int a = counterlist.getLastVisiblePosition();
                 int b = newsAdapter.getCount();
                 if (i == AbsListView.OnScrollListener.SCROLL_STATE_IDLE && (counterlist.getLastVisiblePosition() == newsAdapter.getCount()-1) ){
-                    Runnable Newsload = new Runnable() {
-                        @Override
-                        public void run() {
-                            rs = connnect.GetNewsfromdb(counterlist.getLastVisiblePosition()+1,5);
-                            counterlist.post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    try {
-                                        while (rs.next()) {
-                                            newsAdapter.add(new News(rs.getString(2), rs.getString(3), rs.getBytes(4), rs.getBytes(5)));
-                                        }
-                                    }catch (SQLException sqlEx){
-
-                                    }
-                                }
-                            });
-
-                        }
-                    };
-                    Thread loadthread = new Thread(Newsload);
-                    loadthread.start();
-                    // Now your listview has hit the bottom
+                   addNews(a+1,4);
                 }
             }
 
@@ -102,5 +75,24 @@ public class NewsFragment extends Fragment {
 
             }
         });
+    }
+    private void addNews(int startid,int count){
+        Runnable Newsload = new Runnable() {
+            @Override
+            public void run() {
+                List<News>  newsList = getNewsFromUrl(startid,count);
+                counterlist.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        for (News n : newsList) {
+                            newsAdapter.add(n);
+                        }
+                    }
+                });
+
+            }
+        };
+        Thread loadthread = new Thread(Newsload);
+        loadthread.start();
     }
 }
