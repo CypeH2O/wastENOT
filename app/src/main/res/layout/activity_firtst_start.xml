@@ -7,12 +7,14 @@
     tools:context=".firtst_start_activity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="381dp"
+        android:layout_height="287dp"
+        android:layout_margin="10dp"
 
         android:text="@string/firs_start_hellow_String"
         android:textSize="17dp"
         app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

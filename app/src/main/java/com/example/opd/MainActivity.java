@@ -83,7 +83,6 @@ snackbar.show();
         FragmentStateAdapter pageAdapter = new FragmentAdapter(this);
         pager.setAdapter(pageAdapter);
 
-
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         //медиатор нужен для анимации нижней панели
         TabLayoutMediator tabLayoutMediator= new TabLayoutMediator(tabLayout, pager, new TabLayoutMediator.TabConfigurationStrategy(){
