@@ -14,9 +14,12 @@
         android:theme="@style/Theme.OPD"
         tools:targetApi="31">
         <activity
+            android:name=".firtst_start_activity"
+            android:exported="false" />
+        <activity
             android:name=".SplashScreen"
-            android:theme="@style/SplachTheme"
-            android:exported="true" >
+            android:exported="true"
+            android:theme="@style/SplachTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,9 +35,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name">
-
-        </activity>
+            android:label="@string/app_name"></activity>
     </application>
 
 </manifest>

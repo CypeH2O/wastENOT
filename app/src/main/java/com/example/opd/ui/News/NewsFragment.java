@@ -77,22 +77,33 @@ public class NewsFragment extends Fragment {
         });
     }
     private void addNews(int startid,int count){
-        Runnable Newsload = new Runnable() {
-            @Override
-            public void run() {
-                List<News>  newsList = getNewsFromUrl(startid,count);
-                counterlist.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        for (News n : newsList) {
-                            newsAdapter.add(n);
-                        }
-                    }
-                });
 
-            }
-        };
-        Thread loadthread = new Thread(Newsload);
-        loadthread.start();
+            Runnable Newsload = new Runnable() {
+                @Override
+                public void run() {
+
+                    try {
+                        List<News> newsList = getNewsFromUrl(startid, count);
+
+                    counterlist.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                            for (News n : newsList) {
+                                newsAdapter.add(n);
+                            }
+                        }catch (NullPointerException e){
+                            e.printStackTrace();
+                        }
+                        }
+                    });
+                    }catch (Throwable e ){
+                        e.printStackTrace();
+                    }
+                }
+            };
+            Thread loadthread = new Thread(Newsload);
+            loadthread.start();
+
     }
 }

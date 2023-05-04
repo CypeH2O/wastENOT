@@ -30,6 +30,7 @@ public class CalcFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View result=inflater.inflate(R.layout.calc_start, container, false);
+
         return result;
     }
 }

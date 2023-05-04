@@ -2,6 +2,7 @@ package com.example.opd;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -10,16 +11,26 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.opd.ui.Calculator.CalcFragment;
 import com.example.opd.ui.Calculator.Calculator_activity;
 import com.example.opd.ui.News.ExtendenNewsActivity;
+import com.example.opd.ui.News.NewsFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,7 +49,21 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.advice_save) {
+            AssetManager assetManager = getAssets();
             String str = "Hello world";
+            try {
+                int randint = 1 + (int)(Math.random() * ((30 - 1) + 1));
+                InputStream input = assetManager.open("text/advise.txt");
+                byte[] bytes = new byte[input.available()];
+                input.read(bytes);
+                String text = new String (bytes);
+
+                str = text.substring(text.indexOf(Integer.toString(randint)),text.indexOf("\n",text.indexOf(Integer.toString(randint))));
+
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
             Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), str, Snackbar.LENGTH_SHORT);
 snackbar.show();
 
@@ -53,6 +78,7 @@ snackbar.show();
         //установка изначального laypot
         setContentView(R.layout.activity_main);
         ViewPager2 pager = findViewById(R.id.pager);
+        pager.setUserInputEnabled(false);
         //адаптер нужен для перелистывания страниц
         FragmentStateAdapter pageAdapter = new FragmentAdapter(this);
         pager.setAdapter(pageAdapter);

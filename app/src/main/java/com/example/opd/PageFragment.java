@@ -16,7 +16,7 @@ public class PageFragment extends Fragment {
     public static PageFragment newInstance(int page) {
         PageFragment fragment = new PageFragment();
         Bundle args=new Bundle();
-        args.putInt("num", page);
+        //args.putInt("num", page);
         fragment.setArguments(args);
         return fragment;
     }

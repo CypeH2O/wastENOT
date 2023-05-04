@@ -3,4 +3,5 @@
     <string name="title_home">Карта</string>
     <string name="title_dashboard">Калькулятор</string>
     <string name="title_notifications">Новости</string>
+    <string name="firs_start_hellow_String">Приветствуем вас в нешем прилодении NoName</string>
 </resources>
