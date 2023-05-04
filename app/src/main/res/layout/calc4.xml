@@ -19,7 +19,8 @@
         android:src="@drawable/nature_1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteY="50dp" />
 
     <TextView
         android:id="@+id/textView3"
@@ -44,7 +45,7 @@
             android:id="@+id/texthome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Введите общую площадь вашего жилья"
+            android:text="площадь вашей квартиры"
             android:textAlignment="center"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -59,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:text="Общая площадь"
+                android:text="Площадь жилья"
                 />
             <EditText
                 android:id="@+id/homessquare"
@@ -78,7 +79,7 @@
 
 
     <Button
-        android:id="@+id/FirstQuestion"
+        android:id="@+id/FourthQestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Далее"

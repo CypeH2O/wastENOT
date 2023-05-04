@@ -30,6 +30,10 @@ public class Calculator_activity extends AppCompatActivity {
         }
 
         if(findViewById(R.id.ThirdQestion) != null && view.getId()==findViewById(R.id.ThirdQestion).getId()){
+            setContentView(R.layout.calc4);
+        }
+
+        if(findViewById(R.id.FourthQestion) != null && view.getId()==findViewById(R.id.FourthQestion).getId()){
             setContentView(R.layout.calc_end);
         }
 
