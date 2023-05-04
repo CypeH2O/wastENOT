@@ -75,7 +75,7 @@ snackbar.show();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //установка изначального laypot
+        //установка изначального layout
         setContentView(R.layout.activity_main);
         ViewPager2 pager = findViewById(R.id.pager);
         pager.setUserInputEnabled(false);

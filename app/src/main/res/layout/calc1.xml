@@ -44,7 +44,7 @@
             android:id="@+id/texthome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Введите общую площадь вашего жилья"
+            android:text="Сколько электроэнергии вы использовали за последний день/месяц"
             android:textAlignment="center"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -59,20 +59,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:text="Общая площадь"
+                android:text="Количество электроэнергии"
                 />
+
             <EditText
                 android:id="@+id/homessquare"
-                android:inputType="number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:maxLength="5"/>
+                android:inputType="number"
+                android:maxLength="5" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:text="м^2"/>
+                android:text="кВтч"/>
         </LinearLayout>
     </LinearLayout>
 
