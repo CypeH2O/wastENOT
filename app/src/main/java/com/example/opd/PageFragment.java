@@ -1,13 +1,26 @@
 package com.example.opd;
 
 
+import static android.content.ContentValues.TAG;
+
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+
+import java.io.IOException;
+
+import okhttp3.Call;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import java.io.IOException;
 
 public class PageFragment extends Fragment {
 
@@ -33,10 +46,16 @@ public class PageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View result=inflater.inflate(R.layout.sec_layout, container, false);
-        TextView pageHeader = result.findViewById(R.id.displayText);
-        String header = "Фрагмент " + (pageNumber+1);
-        pageHeader.setText(header);
+        View result=inflater.inflate(R.layout.activity_msp, container, false);
+        WebView webView = result.findViewById(R.id.webView);
+        if(webView != null){
+            webView.getSettings().setJavaScriptEnabled(true);
+            webView.loadUrl("https://regreenpolytech.github.io/map/");
+        }
+        else{
+            Log.e(TAG, "webView is null");
+        }
+
         return result;
     }
 }
