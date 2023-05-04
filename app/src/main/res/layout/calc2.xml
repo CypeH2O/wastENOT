@@ -55,7 +55,7 @@
             android:id="@+id/texthome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Сколько человек проживает в вашем жилье (считая вас)?"
+            android:text="Если вы путешествовали в последний месяц, то напишите сколько километров вы проехали"
             android:textAlignment="center"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -70,7 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:text="Количество человек"
+                android:text="проехал"
                 />
             <EditText
                 android:id="@+id/homessquare"
@@ -83,7 +83,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:text="человек"/>
+                android:text="км"/>
         </LinearLayout>
     </LinearLayout>
 

@@ -55,7 +55,7 @@
             android:id="@+id/texthome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Сколько газа вы используете в месяц?"
+            android:text="Совершаете ли вы РЕГУЛЯРНЫЕ поездки на работу/учёбу? Если да, то напишите, какое расстояние в среднем вы проезжаете"
             android:textAlignment="center"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -70,7 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:text="Объем газа"
+                android:text="Проезжаю"
                 />
             <EditText
                 android:id="@+id/homessquare"
@@ -83,7 +83,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:text="м^3"/>
+                android:text="км"/>
         </LinearLayout>
     </LinearLayout>
 
