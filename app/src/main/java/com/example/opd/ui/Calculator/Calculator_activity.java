@@ -37,12 +37,12 @@ public class Calculator_activity extends AppCompatActivity {
             res = (float) (res + (road*0.2879*2.58*30));
 
             setContentView(R.layout.calc_end);
-        }
-
-        if(findViewById(R.id.CalcEnd) != null && view.getId()==findViewById(R.id.CalcEnd).getId()){
             TextView FinalValText = findViewById(R.id.textView4);
             String finalVal = "Ваш Результат: " + String.valueOf(res) + " кг";
             FinalValText.setText(finalVal);
+        }
+
+        if(findViewById(R.id.CalcEnd) != null && view.getId()==findViewById(R.id.CalcEnd).getId()){
             finish();
         }
     }
