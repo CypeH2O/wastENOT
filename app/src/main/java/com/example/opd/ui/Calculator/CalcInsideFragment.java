@@ -1,30 +1,39 @@
 package com.example.opd.ui.Calculator;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.example.opd.R;
 
 import java.util.ArrayList;
 
-public class Calculator_activity extends AppCompatActivity {
+public class CalcInsideFragment extends Fragment {
     float res;
     ArrayList<CalcFragmentToOneValuesData> fragments = new ArrayList<CalcFragmentToOneValuesData>();
     ListView countriesList;
+    public CalcInsideFragment(){
+        super(R.layout.calc_main);
+    }
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.calc_main);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         setInitialData();
-        countriesList =findViewById(R.id.countriesList);
-        CalcFragmentAdapter adapter = new CalcFragmentAdapter(this,R.layout.calc_fragment,fragments);
+        countriesList =view.findViewById(R.id.countriesList);
+        CalcFragmentAdapter adapter = new CalcFragmentAdapter(this.getContext(),R.layout.calc_fragment,fragments);
         countriesList.setAdapter(adapter);
-        Button calcButton = findViewById(R.id.calc_button);
+        Button calcButton = view.findViewById(R.id.calc_button);
         calcButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,7 +78,7 @@ public class Calculator_activity extends AppCompatActivity {
                 short money = 0;
                 if (editText.getText().toString().equals("")){
                     money = 0;
-                    }
+                }
                 else{
                     Metrsqr = Short.valueOf(editText.getText().toString());
                     res = (float) (res + (money *  0.000008507  + 0.001525719));}
@@ -79,14 +88,10 @@ public class Calculator_activity extends AppCompatActivity {
                 road=0;
                 if (editText.getText().toString().equals("")){
                     road = 0;
-                    }
+                }
                 else{
                     Metrsqr = Short.valueOf(editText.getText().toString());
                     res = (float) (res + (road * 0.0742 + 0.0661));}
-
-                setContentView(R.layout.calc_end);
-                TextView lastValues = findViewById(R.id.textView4);
-                lastValues.setText(Float.toString(res));
             }
         });
     }
