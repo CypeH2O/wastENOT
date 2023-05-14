@@ -12,8 +12,11 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
@@ -34,6 +37,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class MainActivity extends AppCompatActivity {
 
+    DrawerLayout drawerLayout;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 // Inflate the menu; this adds items to the action bar if it is present.
@@ -63,10 +67,11 @@ public class MainActivity extends AppCompatActivity {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-
             Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), str, Snackbar.LENGTH_SHORT);
 snackbar.show();
 
+        }else if(id == android.R.id.home){
+            drawerLayout.openDrawer(GravityCompat.START);
         }
 
         return super.onOptionsItemSelected(item);
@@ -77,6 +82,10 @@ snackbar.show();
         super.onCreate(savedInstanceState);
         //установка изначального layout
         setContentView(R.layout.activity_main);
+        drawerLayout = findViewById(R.id.drawer_layout);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.baseline_table_rows_24);// set drawable icon
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         ViewPager2 pager = findViewById(R.id.pager);
         pager.setUserInputEnabled(false);
         //адаптер нужен для перелистывания страниц
