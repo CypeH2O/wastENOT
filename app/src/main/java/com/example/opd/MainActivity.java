@@ -1,5 +1,6 @@
 package com.example.opd;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
@@ -9,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -37,6 +40,8 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class MainActivity extends AppCompatActivity {
     boolean leftMenuOpen = false;
+    int randint;
+    String str;
     DrawerLayout drawerLayout;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -54,9 +59,9 @@ public class MainActivity extends AppCompatActivity {
 
         if (id == R.id.advice_save) {
             AssetManager assetManager = getAssets();
-            String str = "Hello world";
+            str = "Hello world";
             try {
-                int randint = 1 + (int)(Math.random() * ((30 - 1) + 1));
+                randint = 1 + (int)(Math.random() * ((30 - 1) + 1));
                 InputStream input = assetManager.open("text/advise.txt");
                 byte[] bytes = new byte[input.available()];
                 input.read(bytes);
@@ -64,17 +69,46 @@ public class MainActivity extends AppCompatActivity {
 
                 str = text.substring(text.indexOf(Integer.toString(randint)),text.indexOf("\n",text.indexOf(Integer.toString(randint))));
 
+                Dialog dialog = new Dialog(MainActivity.this);
+                // Установите заголовок
+                dialog.setTitle("Заголовок диалога");
+                dialog.setContentView(R.layout.dialog_view);
+                TextView textview = (TextView) dialog.findViewById(R.id.DialogtextView);
+                textview.setText(str);
+                dialog.show();
+
+//                Button buttonnext = (Button) findViewById(R.id.buttonNext);
+//                buttonnext.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        randint=(randint+1)%30;
+//                        str = text.substring(text.indexOf(Integer.toString(randint)),text.indexOf("\n",text.indexOf(Integer.toString(randint))));
+//                        textview.setText(str);
+//                        dialog.show();
+//                    }
+//                });
+//
+//                Button buttonprev = (Button) findViewById(R.id.buttonNext);
+//                buttonprev.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        randint=(randint+29)%30;
+//                        str = text.substring(text.indexOf(Integer.toString(randint)),text.indexOf("\n",text.indexOf(Integer.toString(randint))));
+//                        textview.setText(str);
+//                        dialog.show();
+//                    }
+//                });
+
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), str, Snackbar.LENGTH_SHORT);
-snackbar.show();
+
+
 
         }else if(id == android.R.id.home){
             if(leftMenuOpen){
                 drawerLayout.closeDrawer(Gravity.LEFT);
                 leftMenuOpen = false;
-
             }else{
                 drawerLayout.openDrawer(GravityCompat.START);
                 leftMenuOpen = true;
