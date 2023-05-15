@@ -1,5 +1,7 @@
 package com.example.opd.ui.Calculator;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -7,6 +9,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.opd.R;
 
@@ -16,10 +19,13 @@ public class Calculator_activity extends AppCompatActivity {
     float res;
     ArrayList<CalcFragmentToOneValuesData> fragments = new ArrayList<CalcFragmentToOneValuesData>();
     ListView countriesList;
+    Button endButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calc_main);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
         setInitialData();
         countriesList =findViewById(R.id.countriesList);
         CalcFragmentAdapter adapter = new CalcFragmentAdapter(this,R.layout.calc_fragment,fragments);
@@ -88,6 +94,17 @@ public class Calculator_activity extends AppCompatActivity {
                 setContentView(R.layout.calc_end);
                 TextView lastValues = findViewById(R.id.textView4);
                 lastValues.setText(Float.toString(res)+"кг CO2");
+                Button endButton = findViewById(R.id.CalcEnd);
+                endButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        SharedPreferences sp = getSharedPreferences("lastres", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor e = sp.edit();
+                        e.putFloat("result",res);
+                        e.commit();
+                        finish();
+                    }
+                });
             }
         });
     }

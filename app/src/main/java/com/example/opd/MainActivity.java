@@ -22,11 +22,14 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.opd.ui.AboutUsActivity;
 import com.example.opd.ui.Calculator.CalcFragment;
 import com.example.opd.ui.Calculator.Calculator_activity;
 import com.example.opd.ui.News.ExtendenNewsActivity;
 import com.example.opd.ui.News.NewsFragment;
+import com.example.opd.ui.settings.SettingsActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
@@ -35,7 +38,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     boolean leftMenuOpen = false;
     DrawerLayout drawerLayout;
     @Override
@@ -88,8 +91,10 @@ snackbar.show();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         //установка изначального layout
         setContentView(R.layout.activity_main);
+        setNavigationViewListener();
         drawerLayout = findViewById(R.id.drawer_layout);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.baseline_table_rows_24);// set drawable icon
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -130,6 +135,28 @@ snackbar.show();
         Intent intent = new Intent(this, Calculator_activity.class);
         startActivity(intent);
     }
+    private void setNavigationViewListener() {
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
+        navigationView.setNavigationItemSelectedListener(this);
+    }
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        // Handle navigation view item clicks here.
+        switch (item.getItemId()) {
 
-
+            case R.id.settings: {
+                Intent intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.about:{
+                Intent intent = new Intent(this, AboutUsActivity.class);
+                startActivity(intent);
+                break;
+            }
+        }
+        //close navigation drawer
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
 }

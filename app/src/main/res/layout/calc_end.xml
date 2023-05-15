@@ -40,9 +40,8 @@
         android:id="@+id/CalcEnd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Далее"
+        android:text="Выйти"
         android:layout_marginTop="80dp"
-        android:onClick="NextQuestion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />

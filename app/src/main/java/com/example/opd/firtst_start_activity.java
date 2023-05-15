@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
@@ -14,6 +15,11 @@ public class firtst_start_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_firtst_start);
+        SharedPreferences sp = getSharedPreferences("lastres",Context.MODE_PRIVATE);
+        SharedPreferences.Editor e = sp.edit();
+        e.putFloat("result",0);
+        e.commit();
+
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 

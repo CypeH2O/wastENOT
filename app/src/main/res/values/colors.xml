@@ -9,4 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="newsBack">#CCCCCC</color>
     <color name="testred">#FF0000</color>
+    <color name="leftMenuHeaderBackrgoundColor">#92EDA6</color>
+    <color name="leftMenuBackrgoundColor">#E0E0E0</color>
+    <color name="selected_tab_menu">#5F9BE1</color>
+
 </resources>
