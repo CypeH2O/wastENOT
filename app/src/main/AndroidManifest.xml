@@ -28,6 +28,7 @@
         </activity>
         <activity
             android:name=".ui.Calculator.Calculator_activity"
+            android:windowSoftInputMode="adjustPan"
             android:exported="false" />
         <activity
             android:name=".ui.News.ExtendenNewsActivity"

@@ -5,8 +5,10 @@
     android:id="@+id/lyaout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/newsBack">
+    android:background="@color/newsBack"
+    android:windowSoftInputMode="adjustPan">
     <ListView
+        android:descendantFocusability="beforeDescendants"
         android:id="@+id/countriesList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

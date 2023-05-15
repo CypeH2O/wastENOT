@@ -36,7 +36,7 @@ import java.io.InputStream;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class MainActivity extends AppCompatActivity {
-
+    boolean leftMenuOpen = false;
     DrawerLayout drawerLayout;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -71,7 +71,15 @@ public class MainActivity extends AppCompatActivity {
 snackbar.show();
 
         }else if(id == android.R.id.home){
-            drawerLayout.openDrawer(GravityCompat.START);
+            if(leftMenuOpen){
+                drawerLayout.closeDrawer(Gravity.LEFT);
+                leftMenuOpen = false;
+
+            }else{
+                drawerLayout.openDrawer(GravityCompat.START);
+                leftMenuOpen = true;
+            }
+
         }
 
         return super.onOptionsItemSelected(item);

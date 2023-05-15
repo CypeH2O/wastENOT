@@ -25,6 +25,7 @@ public class Calculator_activity extends AppCompatActivity {
         CalcFragmentAdapter adapter = new CalcFragmentAdapter(this,R.layout.calc_fragment,fragments);
         countriesList.setAdapter(adapter);
         Button calcButton = findViewById(R.id.calc_button);
+
         calcButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -86,10 +87,11 @@ public class Calculator_activity extends AppCompatActivity {
 
                 setContentView(R.layout.calc_end);
                 TextView lastValues = findViewById(R.id.textView4);
-                lastValues.setText(Float.toString(res));
+                lastValues.setText(Float.toString(res)+"кг CO2");
             }
         });
     }
+
     private void setInitialData(){
         String[] mainTexts = getResources().getStringArray(R.array.calc_main_text);
         String[] leftTexts = getResources().getStringArray(R.array.calc_left_text);
