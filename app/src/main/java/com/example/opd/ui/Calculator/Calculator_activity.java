@@ -78,7 +78,7 @@ public class Calculator_activity extends AppCompatActivity {
                     money = 0;
                     }
                 else{
-                    Metrsqr = Short.valueOf(editText.getText().toString());
+                    money = Short.valueOf(editText.getText().toString());
                     res = (float) (res + (money *  0.000008507  + 0.001525719));}
 
                 clacValueView=countriesList.getChildAt(5);
@@ -88,7 +88,7 @@ public class Calculator_activity extends AppCompatActivity {
                     road = 0;
                     }
                 else{
-                    Metrsqr = Short.valueOf(editText.getText().toString());
+                    road = Short.valueOf(editText.getText().toString());
                     res = (float) (res + (road * 0.0742 + 0.0661));}
 
                 setContentView(R.layout.calc_end);
