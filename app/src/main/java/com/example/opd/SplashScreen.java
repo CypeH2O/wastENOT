@@ -20,7 +20,7 @@ public class SplashScreen extends AppCompatActivity {
         // проверяем, первый ли раз открывается программа
         boolean hasVisited = sp.getBoolean("hasVisited", false);
         if (!hasVisited) {
-            intent = new Intent(this, first_start_activity.class);
+            intent = new Intent(this, firtst_start_activity.class);
             // выводим нужную активность
             SharedPreferences.Editor e = sp.edit();
             e.putBoolean("hasVisited", true);

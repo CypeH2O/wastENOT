@@ -18,7 +18,7 @@ public class firtst_start_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setLang();
-        setContentView(R.layout.activity_firtst_start);
+        setContentView(R.layout.activity_first_start);
         SharedPreferences sp = getSharedPreferences("lastres",Context.MODE_PRIVATE);
         SharedPreferences.Editor e = sp.edit();
         e.putFloat("result",0);
