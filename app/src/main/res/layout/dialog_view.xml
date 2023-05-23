@@ -34,7 +34,7 @@
             android:layout_gravity="right|bottom"
             android:layout_weight="1"
             android:textSize="10sp"
-            android:text="Следующий"
+            android:text="@string/next"
             android:layout_marginRight="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -45,7 +45,7 @@
             android:layout_width="122dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Предыдущий"
+            android:text="@string/prev"
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

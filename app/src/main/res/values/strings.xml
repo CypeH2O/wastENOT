@@ -1,11 +1,51 @@
 <resources>
     <string name="app_name">PolyECO</string>
-    <string name="title_home">Карта</string>
-    <string name="title_dashboard">Калькулятор</string>
-    <string name="title_notifications">Новости</string>
+    <string name="title_map">Карта</string>
+    <string name="title_calc">Калькулятор</string>
+    <string name="title_news">Новости</string>
     <string name="firs_start_hellow_String">Здравствуйте это приложение, созданное студентами Санкт-Петербургского Политехнического университета имени Петра великого на курсе ОПД. Оно направленно на улучшение экологической ситуации на территории спбпу и в дальнейшем, при развитии проекта, на территории других университетов.
 
 Проект содержит: карту раздельного сбора отходов, Калькулятор углеродного следа и новостной портал для любителей поучаствовать в экологической жизни политехнического университета и не только.
  </string>
     <string name="about_us">много текста что мы комнад по опд и все такое</string>
+    <string name="settings_first">Язык</string>
+    <string name="last_res_drop">Сбросить результат</string>
+    <string name="drop">Сбросить</string>
+    <string name="settings">Настройки</string>
+    <string name="about_us_title">О нас</string>
+    <string name="share">Поделиться</string>
+    <string name="send">Отправить</string>
+    <string name="settings2">Отобразить стартовую страницу</string>
+    <string name="settings3">Отобразить</string>
+    <string name="start_test">Начать тест</string>
+    <string name="calc">Посчитать</string>
+    <string name="exit">Выйти</string>
+    <string name="next">следующий</string>
+    <string name="prev">предыдущий</string>
+
+    <string-array name="calc_main_text">
+        <item>Сколько электроэнергии вы использовали за последний день/месяц</item>
+        <item>Если вы путешествовали в последний месяц, то напишите сколько километров вы проехали</item>
+        <item>Совершаете ли вы РЕГУЛЯРНЫЕ поездки на работу/учёбу? Если да, то напишите, какое расстояние в среднем вы проезжаете</item>
+        <item>Площадь вашей квартиры</item>
+        <item>Сколько денег вы тратите на одежду в месяц</item>
+        <item>Сколько км вы пролетели в этом месяце</item>
+    </string-array>
+    <string-array name="calc_left_text">
+        <item>Количество электроэнергии</item>
+        <item>Проехал</item>
+        <item>Проезжаю</item>
+        <item>Площадь жилья</item>
+        <item>Сумма</item>
+        <item>Расстояние</item>
+    </string-array>
+    <string-array name="calc_unit">
+        <item>кВтч</item>
+        <item>км</item>
+        <item>км</item>
+        <item>м²</item>
+        <item>рублей</item>
+        <item>км</item>
+    </string-array>
+
 </resources>

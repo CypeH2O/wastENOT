@@ -4,17 +4,17 @@
         <item
             android:id="@+id/settings"
             android:icon="@drawable/baseline_settings_24"
-            android:title="Настройки" />
+            android:title="@string/settings" />
         <item
             android:id="@+id/about"
             android:icon="@drawable/baseline_info_24"
-            android:title="О нас" />
+            android:title="@string/about_us_title" />
         <item
             android:id="@+id/share"
             android:icon="@drawable/baseline_share_24"
-            android:title="Поделиться" />
+            android:title="@string/share" />
         <item
             android:id="@+id/send"
             android:icon="@drawable/baseline_send_24"
-            android:title="Отправить" />
+            android:title="@string/send" />
 </menu>

@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">PolyECO</string>
+    <string name="title_map">Map</string>
+    <string name="title_calc">Сalculator</string>
+    <string name="title_news">News</string>
+    <string name="firs_start_hellow_String">Hello, this is an application created by students of the Peter the Great St. Petersburg Polytechnic University on the course of the OPD. It is aimed at improving the environmental situation on the territory of SPbPU and in the future, with the development of the project, on the territory of other universities.
+
+The project contains: a separate waste collection map, a carbon footprint calculator and a news portal for those who like to participate in the ecological life of the Polytechnic University and not only. </string>
+    <string name="about_us">a lot of text that we are commands for opd and all that</string>
+    <string name="settings_first">Language  RU</string>
+    <string name="last_res_drop">Clear result</string>
+    <string name="drop">Clear</string>
+    <string name="settings">Settings</string>
+    <string name="about_us_title">About us</string>
+    <string name="share">Share</string>
+    <string name="send">Send</string>
+    <string name="settings2">Display start page</string>
+    <string name="settings3">Display</string>
+    <string name="start_test">Start Test</string>
+    <string name="calc">Calculate</string>
+    <string name="exit">Exit</string>
+    <string name="next">next</string>
+    <string name="prev">previous</string>
+
+
+    <string-array name="calc_main_text">
+        <item>How much electricity did you use in the last day/month</item>
+        <item>If you have traveled in the last month, write down how many kilometers you traveled</item>
+        <item>Do you make REGULAR trips to work/study? If yes, what is the average distance you drive?</item>
+        <item>Area of your apartment</item>
+        <item>How much money do you spend on clothes per month</item>
+        <item>How many miles did you fly this month</item>
+    </string-array>
+    <string-array name="calc_left_text">
+        <item>The amount of electricity</item>
+        <item>Traveled</item>
+        <item>Traveled</item>
+        <item>Housing area</item>
+        <item>Sum</item>
+        <item>Distance</item>
+    </string-array>
+    <string-array name="calc_unit">
+        <item>kWh</item>
+        <item>km</item>
+        <item>km</item>
+        <item>m²</item>
+        <item>rubles</item>
+        <item>km</item>
+    </string-array>
+
+</resources>

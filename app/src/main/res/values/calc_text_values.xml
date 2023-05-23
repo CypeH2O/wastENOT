@@ -1,27 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="calc_main_text">
-        <item>Сколько электроэнергии вы использовали за последний день/месяц</item>
-        <item>Если вы путешествовали в последний месяц, то напишите сколько километров вы проехали</item>
-        <item>Совершаете ли вы РЕГУЛЯРНЫЕ поездки на работу/учёбу? Если да, то напишите, какое расстояние в среднем вы проезжаете</item>
-        <item>площадь вашей квартиры</item>
-        <item>Сколько денег вы тратите на одежду в месяц</item>
-        <item>Сколько км вы пролетели в этом месяце</item>
-    </string-array>
-    <string-array name="calc_left_text">
-        <item>Количество электроэнергии</item>
-        <item>проехал</item>
-        <item>Проезжаю</item>
-        <item>Площадь жилья</item>
-        <item>Сумма</item>
-        <item>Расстояние</item>
-    </string-array>
-    <string-array name="calc_unit">
-        <item>кВтч</item>
-        <item>км</item>
-        <item>км</item>
-        <item>м²</item>
-        <item>рублей</item>
-        <item>км</item>
-    </string-array>
+
 </resources>

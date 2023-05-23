@@ -3,7 +3,9 @@ package com.example.opd;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.AssetManager;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -39,6 +41,7 @@ import com.google.android.material.tabs.TabLayoutMediator;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Locale;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -125,8 +128,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         //установка изначального layout
+        setLang();
         setContentView(R.layout.activity_main);
         setNavigationViewListener();
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -148,15 +151,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 switch (position){
                     case 0:
                         tab.setIcon(R.drawable.map);
-                        tab.setText("Карта");
+                        tab.setText(R.string.title_map);
                         break;
                     case 1:
                         tab.setIcon(R.drawable.calc);
-                        tab.setText("Калькулятор");
+                        tab.setText(R.string.title_calc);
                         break;
                     case 2:
                         tab.setIcon(R.drawable.ic_notifications_black_24dp);
-                        tab.setText("Новости");
+                        tab.setText(R.string.title_news);
                         break;
                 }
 
@@ -192,5 +195,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //close navigation drawer
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
+
+    private void setLang(){
+        SharedPreferences sp = this.getSharedPreferences("language", Context.MODE_PRIVATE);
+
+        String languageToLoad  = sp.getString("language","ru"); // your language
+        Locale locale = new Locale(languageToLoad);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config,
+                getBaseContext().getResources().getDisplayMetrics());
     }
 }

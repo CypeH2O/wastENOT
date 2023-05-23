@@ -5,7 +5,7 @@
     android:layout_height="100dp"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/calc_round_background"
+    android:background="@drawable/backrgound_bottom_line"
     android:paddingHorizontal="10dp"
     app:layout_constraintTop_toBottomOf="@id/textView3">
     <TextView

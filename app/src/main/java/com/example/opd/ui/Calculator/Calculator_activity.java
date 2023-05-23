@@ -2,6 +2,7 @@ package com.example.opd.ui.Calculator;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.opd.R;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Calculator_activity extends AppCompatActivity {
     float res;
@@ -23,6 +25,7 @@ public class Calculator_activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setLang();
         setContentView(R.layout.calc_main);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -116,5 +119,17 @@ public class Calculator_activity extends AppCompatActivity {
         for (int i =  0;i<units.length;i++ ){
             fragments.add(new CalcFragmentToOneValuesData(mainTexts[i],leftTexts[i],units[i]));
         }
+    }
+
+    private void setLang(){
+        SharedPreferences sp = this.getSharedPreferences("language", Context.MODE_PRIVATE);
+
+        String languageToLoad  = sp.getString("language","ru"); // your language
+        Locale locale = new Locale(languageToLoad);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config,
+                getBaseContext().getResources().getDisplayMetrics());
     }
 }

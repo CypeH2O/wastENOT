@@ -4,6 +4,7 @@ package com.example.opd.ui.Calculator;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.example.opd.R;
+
+import java.util.Locale;
+
 public class CalcFragment extends Fragment {
 
     private int pageNumber;
@@ -34,6 +38,7 @@ public class CalcFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        setLang();
         View result=inflater.inflate(R.layout.calc_start, container, false);
 
 
@@ -55,6 +60,16 @@ public class CalcFragment extends Fragment {
         TextView lastres = this.getView().findViewById(R.id.lastres);
         lastres.setText(Float.toString( sp.getFloat("result",0))+"кг CO2");
     }
+    private void setLang(){
+        SharedPreferences sp = this.getContext().getSharedPreferences("language", Context.MODE_PRIVATE);
 
+        String languageToLoad  = sp.getString("language","ru"); // your language
+        Locale locale = new Locale(languageToLoad);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getActivity().getBaseContext().getResources().updateConfiguration(config,
+                getActivity().getBaseContext().getResources().getDisplayMetrics());
+    }
 
 }
