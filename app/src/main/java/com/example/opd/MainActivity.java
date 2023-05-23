@@ -68,13 +68,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             AssetManager assetManager = getAssets();
             str = "Hello world";
             try {
-                randint = 1 + (int)(Math.random() * ((30 - 1) + 1));
                 InputStream input = assetManager.open("text/advise.txt");
                 byte[] bytes = new byte[input.available()];
                 input.read(bytes);
                 String text = new String (bytes);
-
-                str = text.substring(text.indexOf(Integer.toString(randint)),text.indexOf("\n",text.indexOf(Integer.toString(randint))));
+                String[] lines = text.split("\r\n|\r|\n");
+                //str = text.substring(text.indexOf(Integer.toString(randint)),text.indexOf("\n",text.indexOf(Integer.toString(randint))));
+                randint = 1 + (int)(Math.random() * ((lines.length - 1) + 1));
+                str=lines[randint];
 
                 Dialog dialog = new Dialog(MainActivity.this);
                 // Установите заголовок
@@ -88,8 +89,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 buttonnext.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        randint=(randint+1)%30;
-                        str = text.substring(text.indexOf(Integer.toString(randint)),text.indexOf("\n",text.indexOf(Integer.toString(randint))));
+                        randint=(randint+1)%(lines.length);
+                        if (randint==0){randint=1;}
+                        str = lines[randint];
                         textview.setText(str);
                         dialog.show();
                     }
@@ -99,8 +101,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 buttonprev.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        randint=(randint+29)%30;
-                        str = text.substring(text.indexOf(Integer.toString(randint)),text.indexOf("\n",text.indexOf(Integer.toString(randint))));
+                        randint=(randint+lines.length-1)%(lines.length);
+                        str = lines[randint];
                         textview.setText(str);
                         dialog.show();
                     }
