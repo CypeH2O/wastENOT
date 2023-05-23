@@ -1,13 +1,12 @@
 package com.example.opd;
 
-
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.opd.ui.Calculator.CalcFragment;
+import com.example.opd.ui.Map.MapActivity;
 import com.example.opd.ui.News.NewsFragment;
 
 public class FragmentAdapter extends FragmentStateAdapter {
@@ -21,7 +20,7 @@ public class FragmentAdapter extends FragmentStateAdapter {
         Fragment resultFragment =null;
         switch (position) {
             case 0:
-                resultFragment = PageFragment.newInstance(position);
+                resultFragment = MapActivity.newInstance(position);
                 break;
             case 1:
                 resultFragment = CalcFragment.newInstance(position);
