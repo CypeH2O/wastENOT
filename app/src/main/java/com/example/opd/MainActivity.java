@@ -1,45 +1,33 @@
 package com.example.opd;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.opd.ui.AboutUsActivity;
-import com.example.opd.ui.Calculator.CalcFragment;
 import com.example.opd.ui.Calculator.Calculator_activity;
-import com.example.opd.ui.News.ExtendenNewsActivity;
-import com.example.opd.ui.News.NewsFragment;
 import com.example.opd.ui.settings.SettingsActivity;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     boolean leftMenuOpen = false;
@@ -173,6 +161,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
         navigationView.setNavigationItemSelectedListener(this);
     }
+    @SuppressLint("NonConstantResourceId") //надо ибо Warning: Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them in switch case statements
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
@@ -188,9 +177,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
                 break;
             }
+            case R.id.share:{
+                Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                //shareIntent.setAction(Intent.ACTION_VIEW);
+                String shareBody = "Лучшее эко-приложение: \r\nhttps://github.com/CypeH2O/PolyECO/tree/NewsBranch";
+                //СОЗДАТЬ README ФАЙЛ И ДАТЬ ССЫЛКУ НА НЕГО
+                shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+                startActivity(Intent.createChooser(shareIntent, "Поделиться"));
+                break;
+            }
         }
         //close navigation drawer
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }

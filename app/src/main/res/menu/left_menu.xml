@@ -12,7 +12,7 @@
         <item
             android:id="@+id/share"
             android:icon="@drawable/baseline_share_24"
-            android:title="Поделиться" />
+            android:title="Поделиться"/>
         <item
             android:id="@+id/send"
             android:icon="@drawable/baseline_send_24"
