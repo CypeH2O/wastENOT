@@ -40,6 +40,20 @@ public class MapActivity extends Fragment {
             webView.getSettings().setJavaScriptEnabled(true);
             webView.loadUrl("https://regreenpolytech.github.io/map/");
         }
+//        if(webView != null){
+//            webView.getSettings().setJavaScriptEnabled(true);
+//            String dataloader = "";
+//            try(FileReader reader = new FileReader("map.html"))
+//            {
+//                // читаем посимвольно
+//                dataloader = String.valueOf(reader.read(dataloader.toCharArray()));
+//            } catch (FileNotFoundException e) {
+//                throw new RuntimeException(e);
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+//            webView.loadData(dataloader, "text/html", "base64");
+//        }
         else{
             Log.e(TAG, "webView is null");
         }
