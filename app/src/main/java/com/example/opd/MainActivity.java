@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     }
                 });
 
-                Button buttonprev = (Button) dialog.findViewById(R.id.buttonNext);
+                Button buttonprev = (Button) dialog.findViewById(R.id.buttonPrev);
                 buttonprev.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

@@ -10,7 +10,7 @@
     <item>
 
         <bitmap
-            android:src="@drawable/poly_logo"
+            android:src="@drawable/enot"
             android:gravity="center"/>
 
     </item>
