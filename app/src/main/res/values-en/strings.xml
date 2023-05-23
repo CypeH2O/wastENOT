@@ -22,6 +22,9 @@ The project contains: a separate waste collection map, a carbon footprint calcul
     <string name="next">next</string>
     <string name="prev">previous</string>
 
+    <string name="calc_info">This calculator will help you calculate your carbon footprint based on your daily activities.</string>
+    <string name="calc_info_after">We do not store the information you enter, other than the total calculated carbon footprint</string>
+
 
     <string-array name="calc_main_text">
         <item>How much electricity did you use in the last day/month</item>

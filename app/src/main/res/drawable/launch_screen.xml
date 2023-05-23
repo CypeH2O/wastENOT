@@ -10,7 +10,7 @@
     <item>
 
         <bitmap
-            android:src="@drawable/enot"
+            android:src="@drawable/enot_white"
             android:gravity="center"/>
 
     </item>
