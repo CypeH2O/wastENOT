@@ -22,7 +22,7 @@
             android:screenOrientation="portrait"
             android:exported="false" />
         <activity
-            android:name=".firtst_start_activity"
+            android:name=".first_start_activity"
             android:screenOrientation="portrait"
             android:exported="false" />
         <activity

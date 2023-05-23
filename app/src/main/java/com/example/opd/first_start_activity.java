@@ -9,12 +9,12 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
-public class firtst_start_activity extends AppCompatActivity {
+public class first_start_activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_firtst_start);
+        setContentView(R.layout.activity_first_start);
         SharedPreferences sp = getSharedPreferences("lastres",Context.MODE_PRIVATE);
         SharedPreferences.Editor e = sp.edit();
         e.putFloat("result",0);
