@@ -78,18 +78,18 @@ public class Calculator_activity extends AppCompatActivity {
                     money = 0;
                     }
                 else{
-                    Metrsqr = Short.valueOf(editText.getText().toString());
+                    money = Short.valueOf(editText.getText().toString());
                     res = (float) (res + (money *  0.000008507  + 0.001525719));}
 
                 clacValueView=countriesList.getChildAt(5);
                 editText=clacValueView.findViewById(R.id.homessquare);
-                road=0;
+                Metrsqr=0;
                 if (editText.getText().toString().equals("")){
-                    road = 0;
+                    Metrsqr = 0;
                     }
                 else{
                     Metrsqr = Short.valueOf(editText.getText().toString());
-                    res = (float) (res + (road * 0.0742 + 0.0661));}
+                    res = (float) (res + (Metrsqr * 0.0742 + 0.0661));}
 
                 setContentView(R.layout.calc_end);
                 TextView lastValues = findViewById(R.id.textView4);

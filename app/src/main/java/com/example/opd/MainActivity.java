@@ -80,27 +80,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 textview.setText(str);
                 dialog.show();
 
-//                Button buttonnext = (Button) findViewById(R.id.buttonNext);
-//                buttonnext.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        randint=(randint+1)%30;
-//                        str = text.substring(text.indexOf(Integer.toString(randint)),text.indexOf("\n",text.indexOf(Integer.toString(randint))));
-//                        textview.setText(str);
-//                        dialog.show();
-//                    }
-//                });
-//
-//                Button buttonprev = (Button) findViewById(R.id.buttonNext);
-//                buttonprev.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        randint=(randint+29)%30;
-//                        str = text.substring(text.indexOf(Integer.toString(randint)),text.indexOf("\n",text.indexOf(Integer.toString(randint))));
-//                        textview.setText(str);
-//                        dialog.show();
-//                    }
-//                });
+                Button buttonnext = (Button) dialog.findViewById(R.id.buttonNext);
+                buttonnext.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        randint=(randint+1)%30;
+                        str = text.substring(text.indexOf(Integer.toString(randint)),text.indexOf("\n",text.indexOf(Integer.toString(randint))));
+                        textview.setText(str);
+                        dialog.show();
+                    }
+                });
+
+                Button buttonprev = (Button) dialog.findViewById(R.id.buttonNext);
+                buttonprev.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        randint=(randint+29)%30;
+                        str = text.substring(text.indexOf(Integer.toString(randint)),text.indexOf("\n",text.indexOf(Integer.toString(randint))));
+                        textview.setText(str);
+                        dialog.show();
+                    }
+                });
 
             } catch (IOException e) {
                 throw new RuntimeException(e);

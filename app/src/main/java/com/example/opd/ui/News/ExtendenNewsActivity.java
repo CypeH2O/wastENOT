@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.text.util.Linkify;
+import android.util.TypedValue;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -116,8 +117,10 @@ public class ExtendenNewsActivity extends AppCompatActivity {
         FrameLayout.LayoutParams LParams;
         LParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         Linkify.addLinks(text,Linkify.ALL);
-        text.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        text.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
         text.setLayoutParams(LParams);
+        text.setTextSize(TypedValue.COMPLEX_UNIT_DIP,18);
+        text.setTextColor(getResources().getColor(R.color.black));
 
     }
     private void ImgDeco(ImageView Img){

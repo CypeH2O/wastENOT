@@ -35,10 +35,12 @@
             android:layout_weight="1"
             android:textSize="10sp"
             android:text="Следующий"
+            android:layout_marginRight="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <Button
+            android:layout_marginLeft="10dp"
             android:id="@+id/buttonPrev"
             android:layout_width="122dp"
             android:layout_height="wrap_content"
