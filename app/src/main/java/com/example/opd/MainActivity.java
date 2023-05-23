@@ -90,7 +90,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     @Override
                     public void onClick(View v) {
                         randint=(randint+1)%(lines.length);
-                        if (randint==0){randint=1;}
                         str = lines[randint];
                         textview.setText(str);
                         dialog.show();
