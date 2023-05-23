@@ -1,5 +1,6 @@
 package com.example.opd;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -94,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     }
                 });
 
-                Button buttonprev = (Button) dialog.findViewById(R.id.buttonNext);
+                Button buttonprev = (Button) dialog.findViewById(R.id.buttonPrev);
                 buttonprev.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -128,6 +129,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         //установка изначального layout
         setLang();
         setContentView(R.layout.activity_main);
@@ -176,6 +178,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
         navigationView.setNavigationItemSelectedListener(this);
     }
+    @SuppressLint("NonConstantResourceId") //надо ибо Warning: Resource IDs will be non-final by default in Android Gradle Plugin version 8.0, avoid using them in switch case statements
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
@@ -189,6 +192,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.about:{
                 Intent intent = new Intent(this, AboutUsActivity.class);
                 startActivity(intent);
+                break;
+            }
+            case R.id.share:{
+                Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                //shareIntent.setAction(Intent.ACTION_VIEW);
+                String shareBody = "Лучшее эко-приложение: \r\nhttps://github.com/CypeH2O/PolyECO/tree/NewsBranch";
+                //СОЗДАТЬ README ФАЙЛ И ДАТЬ ССЫЛКУ НА НЕГО
+                shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+                startActivity(Intent.createChooser(shareIntent, "Поделиться"));
                 break;
             }
         }

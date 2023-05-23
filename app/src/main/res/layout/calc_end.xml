@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:textSize="20dp"
-        android:text="Какой то экологический совет которого тут должно быть намного больше"
+        android:text="@string/calc_info_after"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
