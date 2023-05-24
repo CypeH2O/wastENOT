@@ -24,9 +24,11 @@ import java.util.Locale;
 public class SettingsActivity extends AppCompatActivity {
     String[] countries = { "Русский", "Английский"};
     Context context = this;
+    boolean first;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        first = true;
         setLang();
         setContentView(R.layout.activity_settings);
         View ClearButton = findViewById(R.id.ClearButton);
@@ -76,27 +78,31 @@ public class SettingsActivity extends AppCompatActivity {
         AdapterView.OnItemSelectedListener itemSelectedListener = new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast toast = Toast.makeText(context, "Смена языка произойдет после перезагрузки",Toast.LENGTH_LONG);
-                // Получаем выбранный объект
-                String item = (String)parent.getItemAtPosition(position);
+                if(first){
+                    first=false;
+                }else {
+                    Toast toast = Toast.makeText(context, "Смена языка произойдет после перезагрузки", Toast.LENGTH_LONG);
+                    // Получаем выбранный объект
+                    String item = (String) parent.getItemAtPosition(position);
 
-                SharedPreferences sp = getSharedPreferences("language",Context.MODE_PRIVATE);
-                SharedPreferences.Editor e = sp.edit();
+                    SharedPreferences sp = getSharedPreferences("language", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor e = sp.edit();
 
-                switch (item){
-                    case "Английский":
+                    switch (item) {
+                        case "Английский":
 
-                        e.putString("language","en");
-                        e.commit();
-                        break;
-                    case "Русский":
+                            e.putString("language", "en");
+                            e.commit();
+                            break;
+                        case "Русский":
 
-                        e.putString("language","ru");
-                        e.commit();
-                        break;
+                            e.putString("language", "ru");
+                            e.commit();
+                            break;
+                    }
+
+                    toast.show();
                 }
-
-                toast.show();
             }
 
             @Override
