@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        System.out.println("123");
         //установка изначального layout
         setLang();
         setContentView(R.layout.activity_main);

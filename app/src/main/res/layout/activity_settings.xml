@@ -28,13 +28,10 @@
         <Spinner
             android:id="@+id/spinner"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="EN"
-            android:textColor="@color/black"
-            android:textSize="20dp"/>
+            android:layout_gravity="center"
+            android:layout_marginLeft="200dp"
+            android:background="@drawable/spinner_back"/>
     </LinearLayout>
     <LinearLayout
         android:id="@+id/layout2"
@@ -55,12 +52,14 @@
             android:textColor="@color/black"
             android:textSize="20dp"
             />
+
         <Button
             android:id="@+id/ClearButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="@string/drop"/>
+            android:layout_gravity="right"
+            android:layout_marginLeft="65dp"
+            android:text="@string/drop" />
     </LinearLayout>
     <LinearLayout
         android:background="@drawable/backrgound_bottom_line"
@@ -84,7 +83,8 @@
             android:id="@+id/DisplayButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="35dp"
+            android:layout_gravity="right"
             android:text="@string/settings3"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

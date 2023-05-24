@@ -13,8 +13,4 @@
             android:id="@+id/share"
             android:icon="@drawable/baseline_share_24"
             android:title="@string/share" />
-        <item
-            android:id="@+id/send"
-            android:icon="@drawable/baseline_send_24"
-            android:title="@string/send" />
 </menu>

@@ -21,6 +21,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.example.opd.R;
 
 public class NewsFragment extends Fragment {
+    boolean loadend = true;
     ArrayList<News> News = new ArrayList<News>();
     JDBCConnector connnect = new JDBCConnector();
     ListView counterlist;
@@ -67,6 +68,7 @@ public class NewsFragment extends Fragment {
                 int b = newsAdapter.getCount();
                 if (i == AbsListView.OnScrollListener.SCROLL_STATE_IDLE && (counterlist.getLastVisiblePosition() == newsAdapter.getCount()-1) ){
                    addNews(a+1,4);
+                   loadend = false;
                 }
             }
 
@@ -77,7 +79,7 @@ public class NewsFragment extends Fragment {
         });
     }
     private void addNews(int startid,int count){
-
+        if(loadend) {
             Runnable Newsload = new Runnable() {
                 @Override
                 public void run() {
@@ -85,25 +87,26 @@ public class NewsFragment extends Fragment {
                     try {
                         List<News> newsList = getNewsFromUrl(startid, count);
 
-                    counterlist.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                            for (News n : newsList) {
-                                newsAdapter.add(n);
+                        counterlist.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    for (News n : newsList) {
+                                        newsAdapter.add(n);
+                                    }
+                                } catch (NullPointerException e) {
+                                    e.printStackTrace();
+                                }
+                                loadend =true;
                             }
-                        }catch (NullPointerException e){
-                            e.printStackTrace();
-                        }
-                        }
-                    });
-                    }catch (Throwable e ){
+                        });
+                    } catch (Throwable e) {
                         e.printStackTrace();
                     }
                 }
             };
             Thread loadthread = new Thread(Newsload);
             loadthread.start();
-
+        }
     }
 }
