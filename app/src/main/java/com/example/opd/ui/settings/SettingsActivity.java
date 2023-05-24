@@ -51,6 +51,24 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    private void setLang(){
+        SharedPreferences sp = this.getSharedPreferences("language", Context.MODE_PRIVATE);
+
+        String languageToLoad  = sp.getString("language","ru"); // your language
+        Locale locale = new Locale(languageToLoad);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config,
+                getBaseContext().getResources().getDisplayMetrics());
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         Spinner sp = findViewById(R.id.spinner);
         ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, countries);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -86,22 +104,5 @@ public class SettingsActivity extends AppCompatActivity {
             }
         };
         sp.setOnItemSelectedListener(itemSelectedListener);
-    }
-
-    private void setLang(){
-        SharedPreferences sp = this.getSharedPreferences("language", Context.MODE_PRIVATE);
-
-        String languageToLoad  = sp.getString("language","ru"); // your language
-        Locale locale = new Locale(languageToLoad);
-        Locale.setDefault(locale);
-        Configuration config = new Configuration();
-        config.locale = locale;
-        getBaseContext().getResources().updateConfiguration(config,
-                getBaseContext().getResources().getDisplayMetrics());
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
     }
 }
