@@ -199,7 +199,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
                 shareIntent.setType("text/plain");
                 //shareIntent.setAction(Intent.ACTION_VIEW);
-                String shareBody = "Лучшее эко-приложение: \r\nhttps://github.com/CypeH2O/PolyECO/tree/NewsBranch";
+                String shareBody = getResources().getString(R.string.share_text)+"\r\nhttps://disk.yandex.ru/d/Mq8IlWjyOaievA";
                 //СОЗДАТЬ README ФАЙЛ И ДАТЬ ССЫЛКУ НА НЕГО
                 shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
                 startActivity(Intent.createChooser(shareIntent, "Поделиться"));

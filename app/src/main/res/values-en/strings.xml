@@ -6,7 +6,8 @@
     <string name="firs_start_hellow_String">Hello, this is an application created by students of the Peter the Great St. Petersburg Polytechnic University on the course of the OPD. It is aimed at improving the environmental situation on the territory of SPbPU and in the future, with the development of the project, on the territory of other universities.
 /n
 The project contains: a separate waste collection map, a carbon footprint calculator and a news portal for those who like to participate in the ecological life of the Polytechnic University and not only. </string>
-    <string name="about_us">a lot of text that we are commands for opd and all that</string>
+    <string name="about_us">\t\t<b>Hello!</b> \n\t\tThis is an application created by students of Peter the Great St. Petersburg Polytechnic University in the course of OPD. \n\n\t\tThe project aims to address the environmental crisis by providing students of Peter the Great St. Petersburg Polytechnic University with the tools to reduce their carbon footprint and waste. The project is subject for development, since all ambitious plans require only time. It is possible to support the project or transfer it to ReGreen.\n\n\t\t<b>Our contacts:</b>\n • Сурен#9236\n • kust#8316\n • ReD_FoX#9039\n • Mozgoed#8420\n • aleriya#7114\n • Mantuscore#8855</string>
+    <string name="share_text">The best eco-application: </string>
     <string name="settings_first">Language</string>
     <string name="last_res_drop">Clear result</string>
     <string name="drop">Clear</string>
@@ -25,7 +26,7 @@ The project contains: a separate waste collection map, a carbon footprint calcul
     <string name="calc_info">This calculator will help you calculate your carbon footprint based on your daily activities.</string>
     <string name="calc_info_after">We do not store the information you enter, other than the total calculated carbon footprint</string>
 
-    <string name="advice_header">Advices</string>
+    <string name="advice_header"><b>Advices</b></string>
 
     <string-array name="calc_main_text">
         <item>How much electricity did you use in the last day/month</item>
