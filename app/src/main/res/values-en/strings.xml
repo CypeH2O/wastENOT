@@ -4,7 +4,7 @@
     <string name="title_calc">Сalculator</string>
     <string name="title_news">News</string>
     <string name="firs_start_hellow_String">Hello, this is an application created by students of the Peter the Great St. Petersburg Polytechnic University on the course of the OPD. It is aimed at improving the environmental situation on the territory of SPbPU and in the future, with the development of the project, on the territory of other universities.
-
+/n
 The project contains: a separate waste collection map, a carbon footprint calculator and a news portal for those who like to participate in the ecological life of the Polytechnic University and not only. </string>
     <string name="about_us">a lot of text that we are commands for opd and all that</string>
     <string name="settings_first">Language  RU</string>
@@ -25,6 +25,7 @@ The project contains: a separate waste collection map, a carbon footprint calcul
     <string name="calc_info">This calculator will help you calculate your carbon footprint based on your daily activities.</string>
     <string name="calc_info_after">We do not store the information you enter, other than the total calculated carbon footprint</string>
 
+    <string name="advice_header">Advices</string>
 
     <string-array name="calc_main_text">
         <item>How much electricity did you use in the last day/month</item>
