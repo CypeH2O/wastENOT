@@ -10,8 +10,9 @@
     <item>
 
         <bitmap
-            android:src="@drawable/enot_white"
-            android:gravity="center"/>
+            android:src="@drawable/enot_white_stretch"
+            android:gravity="center"
+            android:tileMode="disabled"/>
 
     </item>
 
