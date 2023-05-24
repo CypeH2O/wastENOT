@@ -6,12 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".ui.settings.SettingsActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:background="@drawable/backrgound_bottom_line"
         android:id="@+id/layout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,16 +23,19 @@
             android:text="@string/settings_first"
             android:textColor="@color/black"
             android:textSize="20dp"
+
             />
+
         <Spinner
             android:id="@+id/spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="200dp"
-            android:background="@drawable/spinner_back"/>
-    </LinearLayout>
-    <LinearLayout
+            android:layout_alignParentEnd="true"
+
+            android:layout_gravity="right"
+            android:background="@drawable/spinner_back" />
+    </RelativeLayout>
+    <RelativeLayout
         android:id="@+id/layout2"
         android:background="@drawable/backrgound_bottom_line"
         android:layout_width="match_parent"
@@ -51,20 +53,22 @@
             android:text="@string/last_res_drop"
             android:textColor="@color/black"
             android:textSize="20dp"
+
             />
 
         <Button
             android:id="@+id/ClearButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
             android:layout_gravity="right"
-            android:layout_marginLeft="65dp"
             android:text="@string/drop" />
-    </LinearLayout>
-    <LinearLayout
+    </RelativeLayout>
+    <RelativeLayout
         android:background="@drawable/backrgound_bottom_line"
         android:layout_width="match_parent"
         android:layout_height="80dp"
+        android:id="@+id/layout3"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/layout1"
@@ -78,13 +82,15 @@
             android:text="@string/settings2"
             android:textColor="@color/black"
             android:textSize="20dp"
+
             />
+
         <Button
             android:id="@+id/DisplayButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="35dp"
+            android:layout_alignParentEnd="true"
             android:layout_gravity="right"
-            android:text="@string/settings3"/>
-    </LinearLayout>
+            android:text="@string/settings3" />
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
