@@ -6,6 +6,7 @@
     <item
         android:id="@+id/advice_save"
         android:icon="@drawable/lightbulb"
+        
         android:title="Совет"
         app:showAsAction="always" />
 

@@ -100,4 +100,8 @@ public class SettingsActivity extends AppCompatActivity {
                 getBaseContext().getResources().getDisplayMetrics());
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
 }
